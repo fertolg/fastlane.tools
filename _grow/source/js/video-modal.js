@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /**
  * @fileoverview
  * This connects modal functionality and YouTube embedding for the
@@ -19,10 +20,15 @@ function onYouTubeIframeAPIReady() {
   });
 }
 window.$fastlaneYT = (function() {
+=======
+var player;
+var $fastlaneYT = (function() {
+>>>>>>> Prototype for video modal.
 
   // Constants
   var MAX_WIDTH_PERC_ = 0.25;
   var EXPAND_DURATION_ = 0.45; // seconds
+<<<<<<< HEAD
   // @todo(sgeer): Better mobile detection
   var ratio = 16 / 9;
 
@@ -78,6 +84,44 @@ window.$fastlaneYT = (function() {
      * @param {MouseEvent} e
      */
     function openModal(e) {
+=======
+  var ratio = 16 / 9;
+
+  return {
+    onPlayerReady: onPlayerReady
+  };
+
+  /**
+     * Callback for YouTube.onReady
+     * @param {Event} e
+     */
+  function onPlayerReady(e) {
+    initModal(e);
+  }
+
+  /**
+   * Sets up event listeners, etc for modal interaction.
+   */
+  function initModal(e) {
+    var modalContainer = document.querySelector('.video-modal');
+
+    var vMedia = document.querySelector('.video-modal__media');
+    var ytDom = document.getElementById('yt-player');
+
+    var modalWidth, modalHeight;
+    var winWidth, winHeight, maxWidth, maxHeight;
+    setDimensions();
+
+    modalContainer.addEventListener('click', onVideoClick);
+    document.addEventListener('click', checkModalClose);
+    window.addEventListener('keyup', closeModal);
+
+    /**
+       * Open the video modal.
+       * @param {MouseEvent} e
+       */
+    function onVideoClick(e) {
+>>>>>>> Prototype for video modal.
       var pos = modalContainer.getBoundingClientRect();
       var x = pos.left;
       var y = pos.top;
@@ -85,7 +129,10 @@ window.$fastlaneYT = (function() {
       vMedia.style.display = 'block';
       vMedia.style.left = x + 'px';
       vMedia.style.top = y + 'px';
+<<<<<<< HEAD
       backdrop.style.display = 'block';
+=======
+>>>>>>> Prototype for video modal.
 
       var END_WIDTH_ = maxWidth + 'px';
       var END_HEIGHT_ = maxWidth / ratio + 'px';
@@ -99,6 +146,7 @@ window.$fastlaneYT = (function() {
         ease: Power2.easeInOut,
         onComplete: onModalOpen
       });
+<<<<<<< HEAD
 
       TweenMax.to(backdrop, EXPAND_DURATION_, {
         opacity: 1
@@ -118,6 +166,20 @@ window.$fastlaneYT = (function() {
         var x = pos.left;
         var y = pos.top;
 
+=======
+    }
+
+    /**
+       * Close the modal and return to natural position.
+       * Callback from ESC keypress
+       * @param {Event} e
+       */
+    function closeModal(e) {
+      var pos = modalContainer.getBoundingClientRect();
+      var x = pos.left;
+      var y = pos.top;
+      if (e.keyCode == 27) {
+>>>>>>> Prototype for video modal.
         TweenMax.to(vMedia, EXPAND_DURATION_, {
           width: modalWidth + 'px',
           height: modalHeight + 'px',
@@ -127,6 +189,7 @@ window.$fastlaneYT = (function() {
           ease: Power2.easeInOut,
           onComplete: onModalClose
         });
+<<<<<<< HEAD
 
         TweenMax.to(backdrop, EXPAND_DURATION_, {
           opacity: 0,
@@ -134,10 +197,13 @@ window.$fastlaneYT = (function() {
             backdrop.style.display = 'none';
           }
         })
+=======
+>>>>>>> Prototype for video modal.
       }
     }
 
     /**
+<<<<<<< HEAD
      * Callback for clicking elsewhere on the document to close the modal.
      * @todo(sgeer)
      */
@@ -154,6 +220,34 @@ window.$fastlaneYT = (function() {
       ytDom.style.display = 'block';
       vMedia.style.display = 'block'
       player.playVideo();
+=======
+       * Get the necessary dimensions for calculating the modal size/dim.
+       */
+    function setDimensions() {
+      modalWidth = modalContainer.offsetWidth;
+      modalHeight = modalContainer.offsetHeight;
+
+      winWidth = window.innerWidth;
+      winHeight = window.innerHeight;
+      maxWidth = winWidth - winWidth * MAX_WIDTH_PERC_;
+      maxHeight = maxWidth / ratio;
+    }
+
+    /**
+       * Callback for clicking elsewhere on the document to close the modal.
+       * @todo(sgeer)
+       */
+    function checkModalClose() {
+      return false;
+    }
+
+    /**
+       * 
+       */
+    function onModalOpen() {
+      ytDom.style.display = 'block';
+      vMedia.style.display = 'block'
+>>>>>>> Prototype for video modal.
       return TweenMax.to(ytDom, EXPAND_DURATION_, {
         opacity: 1
       });
@@ -168,6 +262,7 @@ window.$fastlaneYT = (function() {
         }
       });
     }
+<<<<<<< HEAD
 
     function createBackdrop_() {
       var div = document.createElement('div');
@@ -177,3 +272,18 @@ window.$fastlaneYT = (function() {
     }
   }
 })();
+=======
+  }
+})();
+function onYouTubeIframeAPIReady() {
+  player = new YT.Player('yt-player', {
+    width: '100%',
+    height: '100%',
+    videoId: 'seoY2-hm7lQ',
+    events: {
+      onReady: $fastlaneYT.onPlayerReady,
+      onStateChange: $fastlaneYT.onPlayerStateChange
+    }
+  });
+}
+>>>>>>> Prototype for video modal.
