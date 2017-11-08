@@ -41,7 +41,6 @@ window.$fastlaneYT = (function() {
   // @todo(sgeer): Better mobile detection
   var ratio = 16 / 9;
 
-
   return {
     onPlayerReady: initModal
   };
@@ -223,7 +222,7 @@ window.$fastlaneYT = (function() {
     }
 
     /**
-     *
+     * onComplete callback for opening the modal.
      */
     function onModalOpen() {
       ytDom.style.display = 'block';
