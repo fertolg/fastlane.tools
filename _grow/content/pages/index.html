@@ -300,6 +300,19 @@ contribute:
   </div>
 </section>
 
+<section class="section tweets">
+  <div class="tweets__carousel slick" data-arrows="true" data-dots="true" data-autoplay="true" data-carousel-name="intro">
+      {% for tweet in doc.tweets %}
+        <div class="tweets__item">
+          <span class="tweets__begin-quote">"</span>
+          <h4>{{ tweet.quote }}</h4>
+          <span class="tweets__end-quote">"</span>
+          <p>{{ tweet.author }}. {{ tweet.time_and_location }}</p>
+        </div>
+      {% endfor %}
+    </div>
+</section>
+
 <section class="section works">
   <div class="section__wrapper">
     <h2 class="section__headline">{{ doc.work.headline }}</h2>
