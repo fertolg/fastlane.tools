@@ -15,7 +15,14 @@ var carousel = function() {
       responsive: [{
         breakpoint: 560,
         settings: {
-          dots: false
+          dots: false,
+          arrows: false
+        }
+      },
+      {
+        breakpoint: 1025,
+        settings: {
+          arrows: false
         }
       }]
     });
