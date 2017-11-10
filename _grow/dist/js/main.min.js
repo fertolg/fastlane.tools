@@ -1,6 +1,6 @@
 // Slick carousel module
 //
-var slick = function() {
+var carousel = function() {
   var slickEls = document.querySelectorAll('.slick');
   slickEls.forEach(function(element) {
     var arrows = element.hasAttribute("data-arrows");
