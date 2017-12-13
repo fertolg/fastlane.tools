@@ -1,5 +1,7 @@
 'use strict';
 
+import 'odometer';
+
 var hero = function() {
 
   /*
