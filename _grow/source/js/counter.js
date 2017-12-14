@@ -1,31 +1,33 @@
 'use strict';
 
+import 'odometer';
+
 (function(){
-  var startedWithMinutes = null;
+  let startedWithMinutes = null;
 
   // This number *never* changes
-  var developerSecondsSavedBeforeAnalyticIngester = 26304323354;
+  const developerSecondsSavedBeforeAnalyticIngester = 26304323354;
 
   // These numbers are taken from our SQL query
-  var developerSecondsSavedAfterAnalyticIngester = 4292012226;
-  var developerSecondsSavedPerSecond = 560;
-  var timeUpdated = 1499885116;
+  const developerSecondsSavedAfterAnalyticIngester = 4292012226;
+  const developerSecondsSavedPerSecond = 560;
+  const timeUpdated = 1499885116;
 
-  var odometerEl = document.getElementById('odometer');
+  let odometerEl = document.getElementById('odometer');
 
-  var calculateHours = function() {
-      // get current time
+  let calculateHours = function() {
+     // get current time
      // get difference in seconds from timeUpdated
      // multiply difference in seconds by developerSecondsSavedPerSecond
      // add to sum of developerSecondsSavedBefore and After
-     var currentEpoch = ((new Date()).getTime()) / 1000;
-     var developerSecondsSavedSinceUpdate = (currentEpoch - timeUpdated) * developerSecondsSavedPerSecond;
-     var seconds = developerSecondsSavedSinceUpdate + developerSecondsSavedBeforeAnalyticIngester + developerSecondsSavedAfterAnalyticIngester;
-     var minutes = seconds / 60; // to minutes
+     let currentEpoch = ((new Date()).getTime()) / 1000;
+     let developerSecondsSavedSinceUpdate = (currentEpoch - timeUpdated) * developerSecondsSavedPerSecond;
+     let seconds = developerSecondsSavedSinceUpdate + developerSecondsSavedBeforeAnalyticIngester + developerSecondsSavedAfterAnalyticIngester;
+     let minutes = seconds / 60; // to minutes
      if (startedWithMinutes === null) {
        startedWithMinutes = minutes;
      }
-     var hours = parseInt(minutes / 60); // to hours
+     let hours = parseInt(minutes / 60); // to hours
      odometerEl.innerHTML = hours;
   }
 
