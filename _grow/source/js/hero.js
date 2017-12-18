@@ -25,7 +25,6 @@ var hero = function() {
   * Placing elements based on viewport width
   */
   var bottomRightX = 0;
-  var bottomRightMeshWidth = 300;
   var placeElements = function(){
     var $heroBg = $('.hero__background');
     var heroWidth = $heroBg.width();
@@ -35,7 +34,7 @@ var hero = function() {
     bottomRightX = 0;
 
     TweenMax.set($triangleBottomRight, {
-      x: bottomRightX
+      x: 0
     });
   }
 
