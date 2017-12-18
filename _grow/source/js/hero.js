@@ -22,23 +22,6 @@ var hero = function() {
   }
 
   /*
-  * Placing elements based on viewport width
-  */
-  var bottomRightX = 0;
-  var placeElements = function(){
-    var $heroBg = $('.hero__background');
-    var heroWidth = $heroBg.width();
-    var heroHeight = $heroBg.height();
-
-    var $triangleBottomRight = $('.mesh-lines-bottom-right');
-    bottomRightX = 0;
-
-    TweenMax.set($triangleBottomRight, {
-      x: 0
-    });
-  }
-
-  /*
   * Animates individual line opacities on large meshes
   */
   var animateLineOpacity = function(){
@@ -89,7 +72,7 @@ var hero = function() {
       x: 550,
       y: 650
     });
-    tl1.to(triangle1Detach, 5, {
+    tl1.to(triangle1Detach, 1, {
       alpha: 0
     });
 
@@ -97,19 +80,19 @@ var hero = function() {
     var triangle2FloatIn = document.querySelector('.triangle-2--float-in');
     var triangle2Attach = document.querySelector('.triangle-2--attach');
     var meshTopRight = document.querySelector('.mesh-lines-top-right');
-    var triangle2Curve1 =[{x: bottomRightX - 200, y:600}, {x:bottomRightX - 350, y:320}, {x:bottomRightX - 250, y: 278}];
-    var triangle2Curve2 =[{x:bottomRightX - 250, y: 278}, {x:bottomRightX - 250, y:420}, {x:bottomRightX - 233, y: 435}];
+    var triangle2Curve1 =[{x: -200, y:600}, {x:-350, y:320}, {x:-250, y: 278}];
+    var triangle2Curve2 =[{x:-250, y: 278}, {x:-250, y:420}, {x:-233, y: 435}];
 
     TweenMax.set(triangle2FloatIn, {
-      x: bottomRightX,
+      x: 0,
       y: 600
     });
     TweenMax.set(triangle2Attach, {
-      x: bottomRightX - 200,
+      x: -200,
       y: 600
     });
     TweenMax.set(meshTopRight, {
-      x: bottomRightX + 60,
+      x: 60,
       y: 100
     });
     var tl2 = new TimelineMax({repeat: -1, repeatDelay:25});
@@ -119,7 +102,7 @@ var hero = function() {
     });
     tl2.to(triangle2Attach, 25, {
       rotation:'+=120',
-      svgOrigin: (bottomRightX) + ' 700',
+      svgOrigin: '0 700',
       ease:Power2.easeInOut,
       bezier:{
         type: "quadratic",
@@ -129,7 +112,7 @@ var hero = function() {
     });
     tl2.to([triangle2Attach, meshTopRight], 10, {
       rotation:'-=60',
-      svgOrigin: (bottomRightX + 137) + ' 120'
+      svgOrigin: '137 120'
     })
     tl2.to(triangle2Attach, 15, {
       bezier:{
@@ -140,16 +123,16 @@ var hero = function() {
     });
     tl2.to(triangle2Attach, 15, {
       rotate: '+=13',
-      x: bottomRightX + 50,
+      x: 50,
       y: 260
     });
     tl2.to(meshTopRight, 10, {
       rotation:'+=60',
-      svgOrigin: (bottomRightX + 137) + ' 120'
+      svgOrigin: '137 120'
     })
     tl2.to(triangle2FloatIn, 25, {
       ease: Power2.easeInOut,
-      x: bottomRightX + 30,
+      x: 30,
       y: 396
     });
     tl2.to(triangle2FloatIn, 5, {
