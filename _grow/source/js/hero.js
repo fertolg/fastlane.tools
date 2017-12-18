@@ -24,7 +24,7 @@ var hero = function() {
   /*
   * Placing elements based on viewport width
   */
-  var bottomRightX;
+  var bottomRightX = 0;
   var bottomRightMeshWidth = 300;
   var placeElements = function(){
     var $heroBg = $('.hero__background');
@@ -32,7 +32,7 @@ var hero = function() {
     var heroHeight = $heroBg.height();
 
     var $triangleBottomRight = $('.mesh-lines-bottom-right');
-    bottomRightX = heroWidth - bottomRightMeshWidth;
+    bottomRightX = 0;
 
     TweenMax.set($triangleBottomRight, {
       x: bottomRightX
@@ -304,7 +304,7 @@ var hero = function() {
   * Initialize
   */
   var init = function() {
-    placeElements();
+    // placeElements();
     animateLineOpacity();
     animateTriangles();
     createParticles();
