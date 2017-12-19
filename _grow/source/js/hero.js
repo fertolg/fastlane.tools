@@ -286,7 +286,6 @@ var hero = function() {
   * Initialize
   */
   var init = function() {
-    // placeElements();
     animateLineOpacity();
     animateTriangles();
     createParticles();
