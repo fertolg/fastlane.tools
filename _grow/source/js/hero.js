@@ -5,15 +5,14 @@ var hero = function() {
   /*
   * Browser fixes
   */
+  // TODO: This does not fully work...yet...:)
   // IE does not supports the transform attribute, but not the CSS style
-  // This is a workaround for it
-  // var transformedElements = $('.has-transform');
-  // $.each(transformedElements, function(index, el){
-  //   var transform = getComputedStyle(el).getPropertyValue('transform');
-  //   $(el).attr('transform', transform);
-  // })
-
-
+  //
+  var transformedElements = $('.has-transform');
+  $.each(transformedElements, function(index, el){
+    var transform = getComputedStyle(el).getPropertyValue('transform');
+    $(el).attr('transform', transform);
+  })
 
   /*
   * Helper methods
@@ -284,14 +283,4 @@ var hero = function() {
       "retina_detect": true
     });
   }());
-
-  /*
-  * Initialize
-  */
-  // var init = function() {
-  //   animateLineOpacity();
-  //   animateTriangles();
-  //   createParticles();
-  // }();
-
 }();
