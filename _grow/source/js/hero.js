@@ -7,11 +7,13 @@ var hero = function() {
   */
   // IE does not supports the transform attribute, but not the CSS style
   // This is a workaround for it
-  var transformedElements = $('.has-transform');
-  $.each(transformedElements, function(index, el){
-    var transform = getComputedStyle(el).getPropertyValue('transform');
-    $(el).attr('transform', transform);
-  })
+  // var transformedElements = $('.has-transform');
+  // $.each(transformedElements, function(index, el){
+  //   var transform = getComputedStyle(el).getPropertyValue('transform');
+  //   $(el).attr('transform', transform);
+  // })
+
+
 
   /*
   * Helper methods
@@ -24,19 +26,19 @@ var hero = function() {
   /*
   * Animates individual line opacities on large meshes
   */
-  var animateLineOpacity = function(){
+  (function(){
     var triangleLines = $('.mesh-lines').toArray();
     triangleLines.sort(function(){ return 0.5-Math.random() });
     var opacityTl = new TimelineMax();
 
-    opacityTl.staggerTo(triangleLines, 1, {alpha:0.4, repeatDelay:4, repeat:-1, yoyo:true}, 0.1);
-    opacityTl.play();
-  }
+    opacityTl.staggerTo(triangleLines, 1, {alpha:0.4, repeatDelay:4, repeat:-1, yoyo:true}, 0.1)
+              .play();
+  }());
 
   /*
   * Animates individual triangles attaching / reattaching to meshes (loop)
   */
-  var animateTriangles = function(){
+  (function(){
     var triangles = document.querySelectorAll('.triangle');
     TweenMax.set(triangles, {
       scale: 0.75,
@@ -54,7 +56,6 @@ var hero = function() {
     });
     tl1.to(triangle1Attach, 25, {
       rotation:'+=270',
-      transformOrigin:'526 -30',
       svgOrigin:'526 -30',
       ease:Power2.easeInOut,
       x: 355,
@@ -68,7 +69,6 @@ var hero = function() {
     }, '-=15');
     tl1.to(triangle1Detach, 25, {
       rotation:'+=270',
-      transformOrigin:'375 200',
       svgOrigin:'375 200',
       ease:Power2.easeInOut,
       x: 550,
@@ -105,7 +105,6 @@ var hero = function() {
     });
     tl2.to(triangle2Attach, 25, {
       rotation:'+=120',
-      transformOrigin: '0 700',
       svgOrigin: '0 700',
       ease:Power2.easeInOut,
       bezier:{
@@ -116,7 +115,6 @@ var hero = function() {
     });
     tl2.to([triangle2Attach, meshTopRight], 10, {
       rotation:'-=60',
-      transformOrigin: '137 120',
       svgOrigin: '137 120'
     })
     tl2.to(triangle2Attach, 15, {
@@ -133,7 +131,6 @@ var hero = function() {
     });
     tl2.to(meshTopRight, 10, {
       rotation:'+=60',
-      transformOrigin: '137 120',
       svgOrigin: '137 120'
     })
     tl2.to(triangle2FloatIn, 25, {
@@ -181,12 +178,12 @@ var hero = function() {
       x: 650,
       y: 700
     });
-  }
+  }());
 
   /*
   * Animates floating particles (uses particles.js)
   */
-  var createParticles = function() {
+  (function() {
     particlesJS("particle__wrapper", {
       "particles": {
         "number": {
@@ -286,15 +283,15 @@ var hero = function() {
       },
       "retina_detect": true
     });
-  }
+  }());
 
   /*
   * Initialize
   */
-  var init = function() {
-    animateLineOpacity();
-    animateTriangles();
-    createParticles();
-  }();
+  // var init = function() {
+  //   animateLineOpacity();
+  //   animateTriangles();
+  //   createParticles();
+  // }();
 
 }();
