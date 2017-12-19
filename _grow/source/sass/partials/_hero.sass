@@ -11,7 +11,7 @@
 
   &__wrapper
     align-items: center
-    background-image: radial-gradient(rgba(9,8,71,0.99), 70%, transparent)
+    background-image: radial-gradient(rgba(9,8,71,0.99), 60%, transparent, 90%, transparent)
     background-position: 50% 100%
     background-repeat: no-repeat
     display: flex
@@ -24,7 +24,7 @@
     width: 100%
     z-index: 5
     +breakpoint($bp-large)
-      background-image: linear-gradient(to right, rgba(0,0,0,0), 15%, rgba(9,8,71,0.99), 85%, rgba(0,0,0,0))
+      background-image: linear-gradient(to right, transparent, 30%, rgba(9,8,71,1), 70%, transparent)
 
   &__summary
     font-size: 20px
@@ -63,7 +63,7 @@
     max-height: 600px
     overflow: hidden
     position: absolute
-    top: 0
+    top: $layout-nav-height
     width: 100%
 
   canvas

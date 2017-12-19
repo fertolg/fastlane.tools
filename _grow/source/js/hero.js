@@ -29,7 +29,7 @@ var hero = function() {
     triangleLines.sort(function(){ return 0.5-Math.random() });
     var opacityTl = new TimelineMax();
 
-    opacityTl.staggerTo(triangleLines, 1, {alpha:0.3, repeatDelay:4, repeat:-1, yoyo:true}, 0.1);
+    opacityTl.staggerTo(triangleLines, 1, {alpha:0.4, repeatDelay:4, repeat:-1, yoyo:true}, 0.1);
     opacityTl.play();
   }
 
@@ -54,6 +54,7 @@ var hero = function() {
     });
     tl1.to(triangle1Attach, 25, {
       rotation:'+=270',
+      transformOrigin:'526 -30',
       svgOrigin:'526 -30',
       ease:Power2.easeInOut,
       x: 355,
@@ -67,12 +68,13 @@ var hero = function() {
     }, '-=15');
     tl1.to(triangle1Detach, 25, {
       rotation:'+=270',
+      transformOrigin:'375 200',
       svgOrigin:'375 200',
       ease:Power2.easeInOut,
       x: 550,
       y: 650
     });
-    tl1.to(triangle1Detach, 1, {
+    tl1.to(triangle1Detach, 5, {
       alpha: 0
     });
 
@@ -95,6 +97,7 @@ var hero = function() {
       x: 60,
       y: 100
     });
+
     var tl2 = new TimelineMax({repeat: -1, repeatDelay:25});
     tl2.timeScale(6);
     tl2.to([triangle2Attach, triangle2FloatIn], 25, {
@@ -102,6 +105,7 @@ var hero = function() {
     });
     tl2.to(triangle2Attach, 25, {
       rotation:'+=120',
+      transformOrigin: '0 700',
       svgOrigin: '0 700',
       ease:Power2.easeInOut,
       bezier:{
@@ -112,6 +116,7 @@ var hero = function() {
     });
     tl2.to([triangle2Attach, meshTopRight], 10, {
       rotation:'-=60',
+      transformOrigin: '137 120',
       svgOrigin: '137 120'
     })
     tl2.to(triangle2Attach, 15, {
@@ -128,6 +133,7 @@ var hero = function() {
     });
     tl2.to(meshTopRight, 10, {
       rotation:'+=60',
+      transformOrigin: '137 120',
       svgOrigin: '137 120'
     })
     tl2.to(triangle2FloatIn, 25, {
