@@ -1,34 +1,13 @@
 'use strict';
 
-var hero = function() {
-
-  /*
-  * Browser fixes
-  */
-  // TODO: This does not fully work...yet...:)
-  // IE does not supports the transform attribute, but not the CSS style
-  //
-  var transformedElements = $('.has-transform');
-  $.each(transformedElements, function(index, el){
-    var transform = getComputedStyle(el).getPropertyValue('transform');
-    $(el).attr('transform', transform);
-  })
-
-  /*
-  * Helper methods
-  */
-  Math.randMinMax = function(t, n, a){
-    var r = t + Math.random() * (n - t);
-    return a && ( r = Math.round(r) ), r;
-  }
-
+let hero = function() {
   /*
   * Animates individual line opacities on large meshes
   */
   (function(){
-    var triangleLines = $('.mesh-lines').toArray();
+    let triangleLines = $('.mesh-lines').toArray();
     triangleLines.sort(function(){ return 0.5-Math.random() });
-    var opacityTl = new TimelineMax();
+    let opacityTl = new TimelineMax();
 
     opacityTl.staggerTo(triangleLines, 1, {alpha:0.4, repeatDelay:4, repeat:-1, yoyo:true}, 0.1)
               .play();
@@ -38,17 +17,17 @@ var hero = function() {
   * Animates individual triangles attaching / reattaching to meshes (loop)
   */
   (function(){
-    var triangles = document.querySelectorAll('.triangle');
+    let triangles = document.querySelectorAll('.triangle');
     TweenMax.set(triangles, {
       scale: 0.75,
       alpha: 0
     });
 
     // Triangle Left Top animation (Attach + Drop down)
-    var triangle1Detach = document.querySelector('.triangle-1--detach');
-    var triangle1Attach = document.querySelector('.triangle-1--attach');
+    let triangle1Detach = document.querySelector('.triangle-1--detach');
+    let triangle1Attach = document.querySelector('.triangle-1--attach');
 
-    var tl1 = new TimelineMax({repeat: -1, repeatDelay:10});
+    let tl1 = new TimelineMax({repeat: -1, repeatDelay:10});
     tl1.timeScale(6);
     tl1.to(triangle1Attach, 5, {
       alpha: 1
@@ -78,11 +57,11 @@ var hero = function() {
     });
 
     // Triangle Right Half (Little machine drop / conveyor belt)
-    var triangle2FloatIn = document.querySelector('.triangle-2--float-in');
-    var triangle2Attach = document.querySelector('.triangle-2--attach');
-    var meshTopRight = document.querySelector('.mesh-lines-top-right');
-    var triangle2Curve1 =[{x: -200, y:600}, {x:-350, y:320}, {x:-250, y: 278}];
-    var triangle2Curve2 =[{x:-250, y: 278}, {x:-250, y:420}, {x:-233, y: 435}];
+    let triangle2FloatIn = document.querySelector('.triangle-2--float-in');
+    let triangle2Attach = document.querySelector('.triangle-2--attach');
+    let meshTopRight = document.querySelector('.mesh-lines-top-right');
+    let triangle2Curve1 =[{x: -200, y:600}, {x:-350, y:320}, {x:-250, y: 278}];
+    let triangle2Curve2 =[{x:-250, y: 278}, {x:-250, y:420}, {x:-233, y: 435}];
 
     TweenMax.set(triangle2FloatIn, {
       x: 0,
@@ -97,7 +76,7 @@ var hero = function() {
       y: 100
     });
 
-    var tl2 = new TimelineMax({repeat: -1, repeatDelay:25});
+    let tl2 = new TimelineMax({repeat: -1, repeatDelay:25});
     tl2.timeScale(6);
     tl2.to([triangle2Attach, triangle2FloatIn], 25, {
       alpha: 1
@@ -142,13 +121,13 @@ var hero = function() {
     });
 
     // Triangle Left Bottom animation
-    var triangle3Attach = document.querySelector('.triangle-3--attach');
+    let triangle3Attach = document.querySelector('.triangle-3--attach');
     TweenMax.set(triangle3Attach, {
       rotate: '-250',
       x: -40,
       y: 420
     });
-    var tl3 = new TimelineMax({repeat: -1, repeatDelay:25});
+    let tl3 = new TimelineMax({repeat: -1, repeatDelay:25});
     tl3.timeScale(6);
     tl3.to(triangle3Attach, 5, {
       alpha: 1
@@ -172,7 +151,7 @@ var hero = function() {
     });
     tl3.to(triangle3Attach, 15, {
       rotation:'-=270',
-      transformOrigin:'0 0',
+      svgOrigin:'183 280',
       ease:Power2.easeIn,
       x: 650,
       y: 700
