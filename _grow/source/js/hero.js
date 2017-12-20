@@ -1,6 +1,7 @@
 'use strict';
 
 let hero = function() {
+
   /*
   * Animates individual line opacities on large meshes
   */
@@ -59,7 +60,7 @@ let hero = function() {
     // Triangle Right Half (Little machine drop / conveyor belt)
     let triangle2FloatIn = document.querySelector('.triangle-2--float-in');
     let triangle2Attach = document.querySelector('.triangle-2--attach');
-    let meshTopRight = document.querySelector('.mesh-lines-top-right');
+    let meshTopRight = document.querySelector('.mesh-lines-top-right-group');
     let triangle2Curve1 =[{x: -200, y:600}, {x:-350, y:320}, {x:-250, y: 278}];
     let triangle2Curve2 =[{x:-250, y: 278}, {x:-250, y:420}, {x:-233, y: 435}];
 
