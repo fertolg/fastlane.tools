@@ -10,7 +10,7 @@ let hero = function() {
     let opacityTl = new TimelineMax();
 
     opacityTl.staggerTo(triangleLines, 1, {alpha:0.4, repeatDelay:4, repeat:-1, yoyo:true}, 0.1)
-              .play();
+    opacityTl.play();
   }());
 
   /*
