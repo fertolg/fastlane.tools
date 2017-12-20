@@ -1,10 +1,10 @@
 .hero
   +light-text
   align-items: center
-  justify-content: center
   background-color: $color-blue-28
   display: flex
   height: 600px
+  justify-content: center
   padding: 0 $layout-side-padding / 2
   text-align: center
 
@@ -16,8 +16,8 @@
     display: flex
     height: 600px
     justify-content: center
-    top: $layout-nav-height
     left: 0
+    top: $layout-nav-height
     width: 100%
     z-index: 5
     +breakpoint($bp-large)
@@ -57,16 +57,16 @@
   // Animated background
   //
   &__background
-    left: 0
     height: inherit
+    left: 0
     overflow: hidden
     position: absolute
     top: $layout-nav-height
     width: 100%
 
   canvas
-    position: absolute
     left: 0
+    position: absolute
 
   svg
     height: 100%
@@ -81,10 +81,11 @@
   // SVG
   .mesh-lines
     fill: none
-    stroke: $color-blue-95
     stroke-width: 1.5
-    +breakpoint($bp-medium)
-      stroke-width: 1.2
+    stroke: $color-blue-95
+
+  .triangle
+    stroke-width: 1.8
 
   .triangle__wrapper
     &--left, &--right
