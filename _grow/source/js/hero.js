@@ -1,7 +1,6 @@
 'use strict';
 
 let hero = function() {
-
   /*
   * Animates individual line opacities on large meshes
   */
@@ -27,6 +26,10 @@ let hero = function() {
     // Triangle Left Top animation (Attach + Drop down)
     let triangle1Detach = document.querySelector('.triangle-1--detach');
     let triangle1Attach = document.querySelector('.triangle-1--attach');
+    TweenMax.set(triangle1Detach, {
+      x: 347,
+      rotation: '30'
+    });
 
     let tl1 = new TimelineMax({repeat: -1, repeatDelay:10});
     tl1.timeScale(6);
@@ -66,15 +69,18 @@ let hero = function() {
 
     TweenMax.set(triangle2FloatIn, {
       x: 0,
-      y: 600
+      y: 600,
+      rotation: '30'
     });
     TweenMax.set(triangle2Attach, {
       x: -200,
-      y: 600
+      y: 600,
+      rotation: '30'
     });
     TweenMax.set(meshTopRight, {
       x: 60,
-      y: 100
+      y: 100,
+      rotation: '30'
     });
 
     let tl2 = new TimelineMax({repeat: -1, repeatDelay:25});
@@ -124,7 +130,7 @@ let hero = function() {
     // Triangle Left Bottom animation
     let triangle3Attach = document.querySelector('.triangle-3--attach');
     TweenMax.set(triangle3Attach, {
-      rotate: '-250',
+      rotation: '30',
       x: -40,
       y: 420
     });

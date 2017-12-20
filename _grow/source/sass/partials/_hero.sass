@@ -93,39 +93,22 @@
       width: 50%
 
     &--left
-      left: 0
+      left: -25%
       top: 0
+      +breakpoint($bp-small)
+        left: -10%
+      +breakpoint(768px)
+        left: 0
 
     &--right
-      right: 0
-      top: 0
-
-    // &--left
-    //   left: -57%
-    //   top: -10%
-    //   +breakpoint($bp-small)
-    //     left: -40%
-    //     top: -10%
-    //   +breakpoint($bp-large)
-    //     left: -25%
-    //     top: 0
-    //
-    // &--right
-    //   right: 10%
-    //   top: 48%
-    //   +breakpoint($bp-small)
-    //     right: 5%
-    //     top: 15%
-    //   +breakpoint($bp-large)
-    //     right: -3%
-    //     top: 0
-
-
-  // .triangle-1--detach
-  //   transform: translate(355px,140px) rotate(30deg)
-  //
-  // .triangle-2--attach
-  //   transform: translate(0, 320px) rotate(30deg)
+      right: -41%
+      top: 53%
+      +breakpoint($bp-small)
+        right: -20%
+        top: 25%
+      +breakpoint(768px)
+        right: 0
+        top: 0
 
   .mesh-lines-top-left, .mesh-lines-bottom-left
     left: 0
