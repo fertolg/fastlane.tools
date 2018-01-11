@@ -42,8 +42,10 @@ function attachScroll_() {
   })
 
   let target, hash;
+  const navItemClass = '.header__nav__list__item';
   function smoothScroll (e) {
-    $('.header__nav__list__item').removeClass('selected');
+    // Remove selected style from all list items
+    $(navItemClass).removeClass('selected');
 
     hash = e.target.hash;
     if (hash) {
@@ -54,7 +56,7 @@ function attachScroll_() {
       }, ANIMATION_SPEED);
     }
 
-    $(e.target).closest('.header__nav__list__item').addClass('selected');
-    console.log($(e.target).closest('.header__nav__list__item'));
+    // Add selected style to relevant list item
+    $(e.target).closest(navItemClass).addClass('selected');
   }
 }
