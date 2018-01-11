@@ -6,6 +6,10 @@
   @media all and (max-width: $width)
     @content
 
+=hover-device()
+  @media (any-pointer: fine)
+    @content
+
 =light-text()
   color: $color-white
   -webkit-font-smoothing: antialiased

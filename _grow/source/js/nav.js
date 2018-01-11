@@ -38,11 +38,15 @@ function attachScroll_() {
   const targetElClasses = ['.header__nav__list--primary', '.features__cards__card__cta'];
   targetElClasses.forEach(sel => {
     const els = [...document.querySelectorAll(sel)];
-    els.map(element => element.addEventListener('click', smoothScroll, true))
+    els.map(element => element.addEventListener('click', smoothScroll, true));
   })
 
   let target, hash;
+  const navItemClass = '.header__nav__list__item';
   function smoothScroll (e) {
+    // Remove selected style from all list items
+    $(navItemClass).removeClass('selected');
+
     hash = e.target.hash;
     if (hash) {
       e.preventDefault();
@@ -51,5 +55,8 @@ function attachScroll_() {
         scrollTop: target.offset().top - SCROLL_OFFSET
       }, ANIMATION_SPEED);
     }
+
+    // Add selected style to relevant list item
+    $(e.target).closest(navItemClass).addClass('selected');
   }
 }
